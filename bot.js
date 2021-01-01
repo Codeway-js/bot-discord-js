@@ -4,11 +4,6 @@ const { Client, Collection } = require("discord.js")
 const { TOKEN, PREFIX } = require("./config.json");
 const client = new Client({ disableEveryone: true });
 client.PREFIX = PREFIX;
-const low = require('lowdb')
-const FileSync = require('lowdb/adapters/FileSync');
-const dbdba = new FileSync("commands/de.json")
-const dbe = low(dbdba)
-dbe.defaults({ Infos_membre: [] }).write()
 const Discord = require('discord.js');
 console.log("init discord js end")
 client.commandsliste = ["kick","ban","avatar","8ball","mute","help","warn","clear","play","tempban","give","money","rank"]
@@ -31,5 +26,19 @@ client.commands.set("unlock", require("./commands/unlock.js"));
 client.on("ready", () => require("./event/ready.js")(client));
 //client.on('message', message => require("./event/message.js")(client, message))
 client.on('guildMemberAdd', member => require("./event/guildMemberAdd.js")(client, member))
+const fs = require('fs')
+client.de = require('./dbe.json')
+client.on('message', async message => {let msgauthorid = message.author.id;
+    if (message.author.bot) return;
+   // if (!dbe.get('Infos_membre').find({ id: msgauthorid }).value()) {
+     //   dbe.get("Infos_membre").push({ id: msgauthorid, money: 1 }).write();
+       // console.log('ça marche  a');
+    
+    //};
+    if(!message.member.hasPermission('MANAGE_CHANNELS') && client.de.lockedChanels.includes(message.channel.id)) return message.delete()
+    if(message.content == ".ping")return message.reply("pong")
+})
+
 
 client.login(process.env.TokenBot)
+
