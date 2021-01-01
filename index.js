@@ -1,4 +1,5 @@
 const { DiscordAPIError } = require("discord.js");
+console.log('test 1')
 const { Client, Collection } = require("discord.js")
 const { PREFIX } = require("./config.json");
 const client = new Client({ disableEveryone: true });
