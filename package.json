@@ -2,9 +2,9 @@
   "name": "bot-discord",
   "version": "1.0.0",
   "description": "c'est un petit bot que j'ai dev",
-  "main": "index.js",
+  "main": "bot",
   "scripts": {
-    "start": "node index.js"
+    "start": "node bot.js"
   },
   "repository": {
     "type": "git",
