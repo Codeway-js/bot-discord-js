@@ -14,7 +14,7 @@ client.commands.set("avatar", require("./commands/avatar.js"));
 client.commands.set('8ball', require("./commands/8ball.js"))
 client.commands.set('mute', require("./commands/mute.js"))
 client.commands.set('help', require("./commands/help.js"))
-client.commands.set('warn', require("./commands/warn.js"))
+//client.commands.set('warn', require("./commands/warn.js"))
 client.commands.set('clear', require("./commands/clear.js"))
 client.commands.set('play', require("./commands/music.js"))
 client.commands.set('tempban', require("./commands/tempmute.js"))
