@@ -6,3 +6,4 @@ const client = new Client({ disableEveryone: true });
 client.PREFIX = PREFIX;
 const Discord = require('discord.js');
 console.log("init discord js end")
+client.login(process.env.TokenBot)
