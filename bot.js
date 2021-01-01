@@ -4,6 +4,11 @@ const { Client, Collection } = require("discord.js")
 const { TOKEN, PREFIX } = require("./config.json");
 const client = new Client({ disableEveryone: true });
 client.PREFIX = PREFIX;
+const low = require('lowdb')
+const FileSync = require('lowdb/adapters/FileSync');
+const dbdba = new FileSync("commands/de.json")
+const dbe = low(dbdba)
+dbe.defaults({ Infos_membre: [] }).write()
 const Discord = require('discord.js');
 console.log("init discord js end")
 client.commandsliste = ["kick","ban","avatar","8ball","mute","help","warn","clear","play","tempban","give","money","rank"]
